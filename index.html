@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
 <title>Internship Group A — Diploma Electrical Engineering</title>
-<meta name="description" content="Project gallery of Internship Group A, Diploma in Electrical Engineering — photos captured during our internship." />
+<meta name="description" content="Internship Group A (Diploma, Electrical Engineering) — smart WiFi-controlled RGB LED lighting project built with an ESP32, WS2811B strips, and WLED, plus our project gallery." />
 <meta name="theme-color" content="#04070d" />
 <meta name="color-scheme" content="dark" />
 
 <!-- Open Graph (link previews) -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Internship Group A — Diploma Electrical Engineering" />
-<meta property="og:description" content="Project gallery captured during our Electrical Engineering internship." />
+<meta property="og:description" content="Smart WiFi-controlled RGB LED lighting project — ESP32 + WS2811B + WLED. Built during our Electrical Engineering internship." />
 <meta property="og:image" content="images/project-1.jpeg" />
 
 <!-- Inline SVG favicon (lightning bolt) -->
@@ -129,9 +129,9 @@
   @keyframes reveal{0%{opacity:0;transform:translateY(28px);filter:blur(8px)}100%{opacity:1;transform:none;filter:none}}
   @keyframes shine{to{background-position:300% 0}}
 
-  /* ---------- TEAM MEMBERS ---------- */
+  /* ---------- TEAM MEMBER CHIPS (About section) ---------- */
   .team{
-    z-index:2;position:relative;margin-top:clamp(16px,3.5vmin,30px);
+    z-index:2;position:relative;
     display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(6px,1.5vw,10px);
     max-width:min(760px,94vw);padding:0 6px;list-style:none;
   }
@@ -141,8 +141,6 @@
     color:var(--txt);white-space:nowrap;
     background:rgba(8,17,31,.75);border:1px solid var(--line);
     backdrop-filter:blur(4px);
-    opacity:0;transform:translateY(18px) scale(.85);
-    animation:chipIn .6s cubic-bezier(.2,.8,.2,1) forwards;
     transition:border-color .3s,box-shadow .3s,transform .3s;
   }
   .member:hover{
@@ -150,7 +148,6 @@
     box-shadow:0 0 18px rgba(255,210,63,.35);transform:translateY(-3px);
   }
   .member::before{content:"⚡ ";font-size:11px}
-  @keyframes chipIn{to{opacity:1;transform:none}}
 
   .start-btn{
     z-index:2;position:relative;margin-top:clamp(22px,4.5vmin,46px);cursor:pointer;
@@ -165,8 +162,6 @@
   .start-btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 0 40px rgba(255,210,63,.7)}
   .start-btn:active{transform:scale(.97)}
   @keyframes pulse{0%,100%{box-shadow:0 0 24px rgba(18,216,250,.4)}50%{box-shadow:0 0 44px rgba(255,210,63,.65)}}
-  .start-btn .arrow{display:inline-block;margin-left:8px;animation:bob 1.4s ease-in-out infinite}
-  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
 
   /* ===================== GALLERY (hidden until button click) ===================== */
   .gallery-wrap{
@@ -236,9 +231,54 @@
   .card.img-error::after{opacity:1}
   .card.img-error .fallback{position:absolute;z-index:2;color:var(--muted);font-size:14px;letter-spacing:2px}
 
+  /* ===================== ABOUT THE PROJECT ===================== */
+  .about-section{padding:0 clamp(14px,3vw,22px) clamp(60px,10vmin,100px);max-width:1200px;margin:0 auto}
+  .spec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(290px,100%),1fr));
+    gap:clamp(14px,2.5vw,26px);margin-top:clamp(26px,5vmin,44px)}
+  .spec-card{
+    position:relative;border-radius:18px;padding:clamp(20px,3.5vw,30px);
+    background:rgba(8,17,31,.75);border:1px solid var(--line);backdrop-filter:blur(4px);
+    transition:border-color .3s,box-shadow .3s,transform .3s;
+  }
+  .spec-card:hover{border-color:var(--accent2);transform:translateY(-4px);
+    box-shadow:0 18px 40px rgba(18,216,250,.18)}
+  .spec-card .icon{
+    width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:22px;
+    background:linear-gradient(135deg,rgba(255,210,63,.15),rgba(18,216,250,.15));
+    border:1px solid var(--line);margin-bottom:16px;
+  }
+  .spec-card h3{font-size:clamp(16px,2.2vw,19px);font-weight:800;letter-spacing:1.5px;
+    margin-bottom:14px;color:var(--accent)}
+  .spec-card ul{list-style:none}
+  .spec-card li{
+    position:relative;padding:7px 0 7px 22px;color:var(--muted);
+    font-size:clamp(13px,1.8vw,14.5px);line-height:1.6;
+  }
+  .spec-card li::before{content:"▸";position:absolute;left:2px;color:var(--accent2)}
+  .spec-card li b{color:var(--txt);font-weight:600}
+  .spec-card code{
+    font-family:Consolas,Monaco,monospace;font-size:.95em;color:var(--green);
+    background:rgba(57,255,20,.08);border:1px solid rgba(57,255,20,.2);
+    border-radius:6px;padding:1px 7px;white-space:nowrap;
+  }
+  .about-intro{max-width:760px;margin:0 auto;text-align:center;color:var(--muted);
+    font-size:clamp(14px,2vw,16px);line-height:1.8;letter-spacing:.3px}
+  .about-intro b{color:var(--txt)}
+  .pm-tel{color:var(--accent2);font-weight:700;text-decoration:none;letter-spacing:1px}
+  .pm-tel:hover{text-decoration:underline}
+  .about-team{margin-top:clamp(34px,6vmin,56px);text-align:center}
+  .about-team h3{font-size:clamp(16px,2.4vw,20px);font-weight:800;letter-spacing:2px;
+    text-transform:uppercase;margin-bottom:6px;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .about-team p{color:var(--muted);font-size:13px;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+  .about-team .team{margin:0 auto}
+
   footer{position:relative;z-index:2;text-align:center;padding:34px 20px 60px;color:#6f809b;
     border-top:1px solid var(--line);font-size:13px;letter-spacing:2px}
   footer span{color:var(--accent)}
+  footer a{color:var(--accent2);text-decoration:none}
+  footer a:hover{text-decoration:underline}
 
   /* ===================== FULLSCREEN LIGHTBOX ===================== */
   .lightbox{position:fixed;inset:0;z-index:50;display:none;
@@ -309,22 +349,8 @@
     <h1 class="title">INTERNSHIP GROUP&nbsp;A</h1>
     <p class="subtitle">Diploma <span class="dot" aria-hidden="true">•</span> Electrical Engineering</p>
 
-    <ul class="team" aria-label="Team members">
-      <li class="member" style="animation-delay:.80s">Akash Mahapatra</li>
-      <li class="member" style="animation-delay:.88s">Amit Kumar Sethi</li>
-      <li class="member" style="animation-delay:.96s">Anwesha Jena</li>
-      <li class="member" style="animation-delay:1.04s">Ashutosh Swain</li>
-      <li class="member" style="animation-delay:1.12s">Bandana Sahoo</li>
-      <li class="member" style="animation-delay:1.20s">Bibhu Mantri</li>
-      <li class="member" style="animation-delay:1.28s">Biswajit Das</li>
-      <li class="member" style="animation-delay:1.36s">Chandan Bira</li>
-      <li class="member" style="animation-delay:1.44s">Chinmaya Maharana</li>
-      <li class="member" style="animation-delay:1.52s">Chinmaya Swain</li>
-      <li class="member" style="animation-delay:1.60s">Dimpal Parida</li>
-    </ul>
-
     <button class="start-btn" id="startBtn" aria-controls="galleryWrap">
-      View Project Gallery <span class="arrow" aria-hidden="true">▼</span>
+      View Project
     </button>
     </div><!-- /hero-content -->
   </header>
@@ -342,7 +368,72 @@
       <div class="grid" id="grid" role="list"><!-- cards injected by JS --></div>
     </section>
 
-    <footer>Made by <span>Internship Group A</span> — Diploma Electrical Engineering</footer>
+    <!-- ================= ABOUT THE PROJECT ================= -->
+    <section class="about-section" aria-labelledby="aboutHeading">
+      <div class="section-head">
+        <h2 id="aboutHeading">About the Project</h2>
+        <p>Smart WiFi-Controlled RGB LED Lighting</p>
+        <div class="wire" aria-hidden="true"></div>
+      </div>
+
+      <p class="about-intro">
+        We built a <b>smart addressable RGB LED lighting system</b> controlled over WiFi.
+        An <b>ESP32</b> microcontroller running <b>WLED</b> drives 10&nbsp;meters of WS2811B
+        LED strips, letting you change colors, effects, and brightness right from your phone.
+      </p>
+
+      <div class="spec-grid">
+        <div class="spec-card">
+          <div class="icon" aria-hidden="true">💡</div>
+          <h3>LED Setup</h3>
+          <ul>
+            <li><b>Lights:</b> 10 meters of WS2811B RGB LED strips</li>
+            <li><b>Controller:</b> ESP32</li>
+            <li><b>Power:</b> 12V and 5V adapters with a common ground (GND) connected between the 12V supply, the LEDs, and the ESP32</li>
+            <li><b>Connections:</b> LED VCC → 12V supply; LED DIN → pin <code>D22</code> on the ESP32</li>
+          </ul>
+        </div>
+
+        <div class="spec-card">
+          <div class="icon" aria-hidden="true">📶</div>
+          <h3>WiFi &amp; App</h3>
+          <ul>
+            <li><b>WiFi SSID:</b> <code>sibu</code> (all lowercase)</li>
+            <li><b>WiFi Password:</b> <code>123456789</code></li>
+            <li><b>App Required:</b> WLED app, available on the Play Store</li>
+          </ul>
+        </div>
+
+        <div class="spec-card">
+          <div class="icon" aria-hidden="true">📞</div>
+          <h3>Project Manager</h3>
+          <ul>
+            <li><b>Name:</b> Chinmaya Swain</li>
+            <li><b>Contact:</b> <a class="pm-tel" href="tel:+917854849826">7854849826</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="about-team">
+        <h3>Team Members</h3>
+        <p>Internship Group A • Diploma Electrical Engineering</p>
+        <ul class="team" aria-label="Team members">
+          <li class="member">Akash Mahapatra</li>
+          <li class="member">Amit Kumar Sethi</li>
+          <li class="member">Anwesha Jena</li>
+          <li class="member">Ashutosh Swain</li>
+          <li class="member">Bandana Sahoo</li>
+          <li class="member">Bibhu Mantri</li>
+          <li class="member">Biswajit Das</li>
+          <li class="member">Chandan Bira</li>
+          <li class="member">Chinmaya Maharana</li>
+          <li class="member">Chinmaya Swain</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>Made by <span>Internship Group A</span> — Diploma Electrical Engineering
+      <br>Project Manager: Chinmaya Swain — <a href="tel:+917854849826">7854849826</a></footer>
   </main>
 
   <!-- ================= FULLSCREEN LIGHTBOX ================= -->
